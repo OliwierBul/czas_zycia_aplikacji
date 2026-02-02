@@ -43,7 +43,7 @@ TextView textView;
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         Log.i("CYKL ZYCIA", "uruchomiono metode onSaveInstanceState");
-        outState.putInt("LICZNIK", licznik);
+        //outState.putInt("LICZNIK", licznik);
     }
 
     @Override
