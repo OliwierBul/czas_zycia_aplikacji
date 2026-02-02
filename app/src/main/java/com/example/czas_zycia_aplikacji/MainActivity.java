@@ -12,11 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
 
 public class MainActivity extends AppCompatActivity {
-int licznik = 0;
+//int licznik = 0;
 Button button;
 TextView textView;
+LicznikViewModel licznikViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,16 +26,18 @@ TextView textView;
         Log.i("CYKL ZYCIA", "uruchomiona metoda onCreate");
         button = findViewById(R.id.button2);
         textView = findViewById(R.id.textView);
+        licznikViewModel = new ViewModelProvider(this).get(LicznikViewModel.class);
         if(savedInstanceState != null){
-            licznik = savedInstanceState.getInt("LICZNIK");
-            textView.setText(""+licznik);
+            //licznik = savedInstanceState.getInt("LICZNIK");
+            //textView.setText(""+licznik);
         }
+        textView.setText(licznikViewModel.getLicznik() + "");
         button.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        licznik++;
-                        textView.setText(""+licznik);
+                        licznikViewModel.AddLicznik();
+                        textView.setText(""+licznikViewModel.getLicznik());
                     }
                 }
         );

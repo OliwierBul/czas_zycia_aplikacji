@@ -3,5 +3,16 @@ package com.example.czas_zycia_aplikacji;
 import androidx.lifecycle.ViewModel;
 
 public class LicznikViewModel extends ViewModel {
+    private int licznik = 0;
 
+    public int getLicznik() {
+        return licznik;
+    }
+
+    public void setLicznik(int licznik) {
+        this.licznik = licznik;
+    }
+    public void AddLicznik(){
+        licznik++;
+    }
 }
