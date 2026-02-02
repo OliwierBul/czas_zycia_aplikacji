@@ -1,6 +1,7 @@
 package com.example.czas_zycia_aplikacji;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,12 +14,39 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        Log.i("CYKL ZYCIA", "uruchomiona metoda onCreate");
+
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i("CYKL ZYCIA", "uruchomiono metode onStarrt");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("CYKL ZYCIA", "uruchomiono metode onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("CYKL ZYCIA", "uruchomiono metode onPause");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("CYKL ZYCIA", "uruchomiono metode onDestroy");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("CYKL ZYCIA", "uruchomiono metode onStop");
+    }
+
 }
